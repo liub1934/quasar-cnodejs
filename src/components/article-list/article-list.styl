@@ -1,0 +1,47 @@
+@import '../../css/mixins.styl'
+.article-list
+  .article
+    padding: 10px
+    border-bottom: 1px solid #CCCCCC
+    &:last-child
+      border-bottom: none
+  .article-tag
+    padding: 0px 4px
+    margin-right: 5px
+    font-size: 12px
+    color: #fff
+    text-align: center
+    background: #CCCCCC
+    display: inline-block
+    vertical-align: middle
+    line-height: 1.5
+    border-radius: 3px
+  .article-top
+    no-wrap()
+  .article-title
+    font-size: 16px
+    color: #000
+    display: inline-block
+    vertical-align: middle
+    
+  .article-content
+    display: flex
+    align-items: center
+    .avatar
+      width: 40px
+      height: @width
+      border-radius: 50%
+      margin-right: 10px
+      border: 1px solid #CCCCCC
+    .article-info
+      flex: 1
+      .info-top,
+      .info-bottom
+        display: flex
+        padding: 2px 0
+        line-height: 1.5
+        color: #34495e
+      .author-name,
+      .time
+        flex: 1
+

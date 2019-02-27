@@ -1,0 +1,31 @@
+@import '~variables'
+.topic
+  padding: 10px
+  .topic-title
+    font-weight: 700
+  .author-top
+    display: flex
+    align-items: center
+    font-size: 14px
+    padding-top: 10px
+    .avatar
+      width: 40px
+      height 40px
+      border-radius: 50%
+      margin-right 15px
+    .left
+      flex: 1
+    .right
+      text-align: center
+      .tag 
+        padding: 2px 10px
+        border-radius: 4px
+        color: #FFFFFF
+      .collect
+        margin-left: 10px
+        color: #CCCCCC
+        cursor: pointer
+        transition: all .3s
+      .collect.active
+        margin-left: 10px
+        color: $primary
