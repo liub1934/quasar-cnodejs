@@ -1,7 +1,6 @@
 # Quasar App
 
 vue + [quasar-framework](https://quasar-framework.org/)写的一个cnodejs社区，待完善。。。
-> 在线预览：https://www.liub37.com/cnodejs
 
 本地运行
  Node.js >= 8.9.0
