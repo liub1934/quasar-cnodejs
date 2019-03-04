@@ -1,8 +1,8 @@
-基于vue + [quasar-framework](https://quasar-framework.org)写的一个cnodejs社区，功能待完善中
-技术平平前端小码农，代码如有不足之处望多指点。
+基于vue + [quasar-framework](https://quasar-framework.org)写的一个cnodejs社区，功能待完善中 
+技术平平前端小码农，代码如有不足之处望多指点。 
 
-[**在线Demo**](https://github.liub37.com/cnodejs)
-[**github**](https://github.com/liub1934/quasar-cnodejs)
+[**在线Demo**](https://github.liub37.com/cnodejs) 
+[**github**](https://github.com/liub1934/quasar-cnodejs) 
 
 # 已完成功能
 - [x] 登陆页
@@ -16,9 +16,9 @@
 - [x] 点赞、取消点赞
 - [x] 评论、回复
 # 参考
-部分UI布局参考：[https://github.com/shinygang/Vue-cnodejs](https://github.com/shinygang/Vue-cnodejs)
-quasar-framework文档：[非官方中文文档](http://www.quasarchs.com/)、[英文文档](https://quasar-framework.org)
-cnodejs社区api：[https://cnodejs.org/api](https://cnodejs.org/api)
+部分UI布局参考：[https://github.com/shinygang/Vue-cnodejs](https://github.com/shinygang/Vue-cnodejs) 
+quasar-framework文档：[非官方中文文档](http://www.quasarchs.com/)、[英文文档](https://quasar-framework.org) 
+cnodejs社区api：[https://cnodejs.org/api](https://cnodejs.org/api) 
 # 本地运行
 > Node.js >= 8.9.0
 ```shell
