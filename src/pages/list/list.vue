@@ -9,25 +9,32 @@
  */
 
 <template>
-  <q-infinite-scroll ref="scroll"
-    :handler="loadMore">
-    <article-list :list="list"></article-list>
-    <list-loading :loading="loading"
-      :end="end"
-      :no-result="noResult">
-    </list-loading>
-  </q-infinite-scroll>
+  <div class="list">
+    <scroll pullup
+      :data="list"
+      @scrollToEnd="loadMore">
+      <div class="list-content">
+        <article-list :list="list"></article-list>
+        <list-loading :loading="loading"
+          :end="end"
+          :no-result="noResult">
+        </list-loading>
+      </div>
+    </scroll>
+  </div>
 </template>
 
 <script>
-const ArticleList = () => import('src/components/article-list/article-list')
-const ListLoading = () => import('src/components/list-loading/list-loading')
+import ArticleList from 'src/components/article-list/article-list'
+import Scroll from 'src/components/scroll/scroll'
+import ListLoading from 'src/components/list-loading/list-loading'
 import { getTopics } from 'src/api/index.js'
 import { mapMutations } from 'vuex'
 import { getArticleTag } from 'src/utils/article.js'
 export default {
   components: {
     ArticleList,
+    Scroll,
     ListLoading
   },
   data() {
@@ -36,7 +43,7 @@ export default {
       end: false,
       noResult: false,
       list: [],
-      noList: false,
+      hasDone: false,
       params: {
         page: 1,
         limit: 20,
@@ -65,12 +72,14 @@ export default {
         this.SET_TITLE('全部')
       }
     },
+    scrollToEnd() {
+      console.log(1)
+    },
     loadMore(index, done) {
-      if (index === 1) {
-        this.$refs.scroll.stop()
-        return
+      if (!this.hasDone) {
+        this.hasDone = true
+        this._getTopics()
       }
-      this._getTopics(done)
     },
     _getTopics(done) {
       getTopics(this.params).then(res => {
@@ -81,20 +90,11 @@ export default {
             this.noResult = true
           }
           this.loading = false
-          this.$refs.scroll.stop()
           return
         }
         this.list = this.list.concat(res.data)
+        this.hasDone = false
         this.params.page++
-        // this.$route.meta.cache = true
-        setTimeout(() => {
-          if (this.params.page - 1 === 1) {
-            this.$refs.scroll.resume()
-          }
-        }, 20)
-        if (done) {
-          done()
-        }
       })
     }
   },
@@ -107,3 +107,12 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+.list .scroll-wrapper
+  position: absolute
+  top: 51px
+  right: 0
+  bottom: 0
+  left: 0
+</style>

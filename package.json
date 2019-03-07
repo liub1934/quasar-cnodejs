@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "better-scroll": "^1.14.1",
     "markdown": "^0.5.0",
     "vue-lazyload": "^1.2.6",
     "vue-navigation": "^1.1.4"
