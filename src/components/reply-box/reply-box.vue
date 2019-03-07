@@ -52,13 +52,12 @@ export default {
   },
   methods: {
     toReply() {
-      if(!this.userInfo){
+      if (!this.userInfo) {
         this.$router.push({
           name: 'Login',
           query: {
             redirect: this.$route.path
           }
-         
         })
         return
       }
@@ -91,6 +90,7 @@ export default {
             this.$emit('has-reply')
           })
           .catch(err => {
+            if (err) throw err
             this.loading = false
           })
       }
@@ -108,4 +108,3 @@ export default {
   .reply-btn
     margin-top: 10px
 </style>
-

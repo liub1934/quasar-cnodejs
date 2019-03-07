@@ -110,13 +110,12 @@ export default {
     console.log('Github -> https://github.com/liub1934/quasar-cnodejs')
   },
   methods: {
-    newAdd(){
-      console.log(this.$route);
-      if(this.userInfo){
+    newAdd () {
+      if (this.userInfo) {
         this.$router.push({
           name: 'Add'
         })
-      }else {
+      } else {
         this.$router.push({
           name: 'Login',
           query: {

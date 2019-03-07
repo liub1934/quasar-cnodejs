@@ -69,6 +69,7 @@ export default {
           }
         })
         .catch(err => {
+          if (err) throw err
           this.loading = false
         })
     }

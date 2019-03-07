@@ -106,7 +106,6 @@ export default {
       let i = ups.indexOf(id)
       return i
     },
-    
     showReply(item, index) {
       if (index === this.replyIndex) {
         this.replyIndex = -1
@@ -171,4 +170,3 @@ export default {
       .active
         color: $primary
 </style>
-

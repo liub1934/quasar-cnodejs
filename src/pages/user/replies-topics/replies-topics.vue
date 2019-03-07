@@ -14,7 +14,6 @@
       :list="list"
       type="repliesTopics">
     </article-list>
-    
     <list-loading :loading="false"
       :no-result="list.length ? false : true">
     </list-loading>

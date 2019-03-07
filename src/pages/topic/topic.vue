@@ -120,6 +120,7 @@ export default {
           this.loading = false
         })
         .catch(err => {
+          if (err) throw err
           this.loading = false
         })
     },

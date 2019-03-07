@@ -1,7 +1,6 @@
 import {
   axios
 } from 'plugins/axios'
-import { _getUserInfo } from 'src/assets/js/cache.js'
 
 /**
  *获取主题列表
@@ -19,9 +18,7 @@ export function getTopics(params = {}) {
     mdrender: true
   }
   let data = Object.assign({}, defaultParams, params)
-  return axios.get(url, {
-      params: data
-    })
+  return axios.get(url, { params: data })
     .then(res => {
       return Promise.resolve(res.data)
     })
@@ -59,8 +56,8 @@ export function getTopicDetail(id, token) {
 export function accessToken(token) {
   const url = '/accesstoken'
   return axios.post(url, {
-      accesstoken: token
-    })
+    accesstoken: token
+  })
     .then(res => {
       return Promise.resolve(res.data)
     })
@@ -142,7 +139,6 @@ export function topicReplies(topicId, params = {}) {
     })
 }
 
-
 /**
  *主题收藏
  *
@@ -170,7 +166,7 @@ export function collect(topicId) {
  * @export
  * @returns
  */
-export function getCollect(username){
+export function getCollect(username) {
   const url = `/topic_collect/${username}`
   return axios.get(url)
     .then(res => {

@@ -96,7 +96,7 @@ export default {
     },
     submit() {
       let { valid, msg } = this.validate()
-      if(valid){
+      if (valid) {
         this.postData.accesstoken = this.userInfo.token
         addTopic(this.postData).then(res => {
           this.$q
@@ -114,7 +114,7 @@ export default {
               })
             })
         })
-      }else {
+      } else {
         this.$q.notify({
           message: msg,
           type: 'negative',
@@ -123,33 +123,34 @@ export default {
         })
       }
     },
-    validate(){
+    validate () {
       let valid = true
-      let errMsg = ''
-      if(!this.postData.tab) {
+      let msg = ''
+      if (!this.postData.tab) {
         return {
           valid: false,
           msg: '请选择主题类型'
         }
-      }else if (!this.postData.title) {
+      } else if (!this.postData.title) {
         return {
           valid: false,
           msg: '请填写主题名称'
         }
-      }else if (!this.postData.content) {
+      } else if (!this.postData.content) {
         return {
           valid: false,
           msg: '请填写主题内容'
         }
       }
       return {
-        valid: true
+        valid: valid,
+        msg: msg
       }
     }
   },
   watch: {
     $route(newRoute) {
-      if(newRoute.name === 'Add'){
+      if (newRoute.name === 'Add') {
         this.SET_TITLE('发布主题')
       }
     }

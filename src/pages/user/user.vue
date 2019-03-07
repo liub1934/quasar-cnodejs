@@ -49,13 +49,9 @@
 
 <script>
 import './user.styl'
-const ArticleList = () => import('components/article-list/article-list')
 import { getUserInfo } from 'src/api/index.js'
 import { mapMutations, mapGetters } from 'vuex'
 export default {
-  components: {
-    ArticleList
-  },
   data() {
     return {
       list: [
@@ -70,11 +66,7 @@ export default {
         {
           label: '我的收藏',
           value: 'collect'
-        },
-        // {
-        //   label: '我的消息',
-        //   value: 'message'
-        // }
+        }
       ]
     }
   },

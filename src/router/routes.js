@@ -1,4 +1,3 @@
-
 const routes = [
   {
     path: '/',
@@ -7,8 +6,8 @@ const routes = [
     children: [
       {
         name: 'List',
-        path: '/list', 
-        component: () => import('pages/list/list') ,
+        path: '/list',
+        component: () => import('pages/list/list'),
         meta: {
           cache: false,
           keepAlive: true
@@ -16,17 +15,17 @@ const routes = [
       },
       {
         name: 'Topic',
-        path: '/topic/:id', 
-        component: () => import('pages/topic/topic') 
+        path: '/topic/:id',
+        component: () => import('pages/topic/topic')
       },
       {
         name: 'Login',
-        path: '/login', 
-        component: () => import('pages/login/login') 
+        path: '/login',
+        component: () => import('pages/login/login')
       },
       {
         name: 'User',
-        path: '/user/:username', 
+        path: '/user/:username',
         component: () => import('pages/user/user'),
         meta: {
           cache: false,
@@ -64,7 +63,7 @@ const routes = [
       },
       {
         name: 'Add',
-        path: '/add', 
+        path: '/add',
         component: () => import('pages/add/add')
       }
     ]

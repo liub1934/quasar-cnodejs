@@ -40,10 +40,10 @@ export function getArticleTag(tab, good, top, type) {
       }
       break
     case 'dev':
-    tag = {
-      text: '测试'
-    }
-    break
+      tag = {
+        text: '测试'
+      }
+      break
   }
   if (top) {
     tag = {
@@ -57,9 +57,9 @@ export function getArticleTag(tab, good, top, type) {
       text: '精华'
     }
   }
-  if(type === 'text'){
+  if (type === 'text') {
     return tag.text || ''
-  }else {
+  } else {
     return tag.color || '#cccccc'
   }
 }

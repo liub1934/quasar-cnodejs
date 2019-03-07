@@ -63,6 +63,7 @@ export default {
               this.list = res.data
             })
             .catch(err => {
+              if (err) throw err
               this.loading = false
               this.noResult = true
             })

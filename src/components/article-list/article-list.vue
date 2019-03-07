@@ -65,7 +65,6 @@ export default {
   },
   methods: {
     handleClick(article) {
-      console.log(article);
       this.$router.push({
         name: 'Topic',
         params: {

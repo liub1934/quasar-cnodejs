@@ -10,8 +10,8 @@ export function formatDate(date) {
   const tags = ['年', '个月', '星期', '天', '小时', '分钟', '秒']
   const times = [31536000, 2592000, 604800, 86400, 3600, 60, 1]
   for (let i = 0; i < times.length; i++) {
-    const inm = Math.floor(mistiming / times[i]);
-    if (inm != 0) {
+    const inm = Math.floor(mistiming / times[i])
+    if (inm !== 0) {
       return inm + tags[i] + '前'
     }
   }

@@ -6,11 +6,10 @@ import {
 export default ({
   Vue
 }) => {
-
   const baseURL = 'https://cnodejs.org/api/v1'
   axios.defaults.baseURL = baseURL
 
-  //request拦截器，设置全局请求
+  // request拦截器，设置全局请求
   axios.interceptors.request.use(config => {
     if (config.method === 'post') {
       let data = config.data || {}
@@ -22,18 +21,18 @@ export default ({
     return config
   })
 
-  //response拦截器，做些错误处理
+  // response拦截器，做些错误处理
   axios.interceptors.response.use(
     response => {
       let data = response.data
       if (data.success) {
         let resultCode = data.resultCode
         switch (resultCode) {
-          case 0: //请求错误
-            //做些处理
+          case 0: // 请求错误
+            // 做些处理
             break
-          case -1: //需要重新登录
-            //做些处理
+          case -1: // 需要重新登录
+            // 做些处理
             break
         }
         console.log('success::', data)
