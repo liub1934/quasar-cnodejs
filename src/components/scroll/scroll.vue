@@ -44,7 +44,7 @@ export default {
     * 列表的数据
     */
     data: {
-      type: Array,
+      type: [Array, Object],
       default: null
     },
     /**
@@ -91,7 +91,8 @@ export default {
       this.scroll = new BScroll(this.$refs.scrollWrapper, {
         probeType: this.probeType,
         click: this.click,
-        scrollX: this.scrollX
+        scrollX: this.scrollX,
+        observeDOM: false
       })
 
       // 是否派发滚动事件
@@ -105,7 +106,7 @@ export default {
       if (this.pullup) {
         this.scroll.on('scrollEnd', () => {
           // 滚动到底部
-          if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
+          if (this.scroll.y - this.scroll.maxScrollY < 300) {
             this.$emit('scrollToEnd')
           }
         })

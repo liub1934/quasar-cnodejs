@@ -39,10 +39,9 @@
       </template>
     </q-list>
     <template v-show="$route.name !== 'User'">
-      <keep-alive>
-        <router-view v-if="$route.meta.keepAlive" />
-      </keep-alive>
-      <router-view v-if="!$route.meta.keepAlive" />
+      <navigation>
+        <router-view></router-view>
+      </navigation>
     </template>
   </div>
 </template>
@@ -72,11 +71,7 @@ export default {
   },
   created() {
     this.SET_TITLE('用户中心')
-  },
-  activated() {
-    if (!this.$route.meta.cache) {
-      this._getUserInfo()
-    }
+    this._getUserInfo()
   },
   computed: {
     ...mapGetters(['user'])
@@ -87,7 +82,6 @@ export default {
       let username = this.$route.params.username
       if (username) {
         getUserInfo(username).then(res => {
-          // this.user = res.data
           this.SET_USER(res.data)
           this.$route.meta.cache = true
         })
@@ -102,10 +96,6 @@ export default {
     $route(newRoute, oldRoute) {
       if (newRoute.name === 'User') {
         this.SET_TITLE('用户中心')
-        if (newRoute.name === oldRoute.name) {
-          this.SET_USER(null)
-          this._getUserInfo()
-        }
       }
     }
   }

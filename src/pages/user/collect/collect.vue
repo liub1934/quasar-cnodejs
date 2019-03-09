@@ -9,25 +9,21 @@
  */
 <template>
   <div class="collect">
-    <article-list :list="list"
-      type="collectList">
-    </article-list>
-
-    <list-loading :loading="loading"
+    <article-list type="collectList"
+      :list="list"
+      :loading="loading"
       :no-result="noResult">
-    </list-loading>
+    </article-list>
   </div>
 </template>
 
 <script>
 const ArticleList = () => import('components/article-list/article-list')
-const ListLoading = () => import('src/components/list-loading/list-loading')
 import { mapMutations } from 'vuex'
 import { getCollect } from 'src/api/index.js'
 export default {
   components: {
-    ArticleList,
-    ListLoading
+    ArticleList
   },
   data() {
     return {

@@ -41,7 +41,7 @@
               v-html="reply.content"></q-item-tile>
             <q-item-tile class="reply-bottom"
               label>
-              <div class="time">{{ formatDate(reply.create_at) }}{{reply.create_at}}</div>
+              <div class="time">{{ formatDate(reply.create_at) }}</div>
               <div class="zr">
                 <span class="zan"
                   @click.stop="_zan(reply)">

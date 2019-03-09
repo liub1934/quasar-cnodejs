@@ -27,6 +27,7 @@
 <script>
 import NoResult from 'src/components/no-result/no-result'
 export default {
+  inheritAttrs: false,
   components: {
     NoResult
   },

@@ -11,23 +11,20 @@
 <template>
   <div class="replies-topics">
     <article-list v-if="user"
+       type="repliesTopics"
       :list="list"
-      type="repliesTopics">
-    </article-list>
-    <list-loading :loading="false"
+      :loading="false"
       :no-result="list.length ? false : true">
-    </list-loading>
+    </article-list>
   </div>
 </template>
 
 <script>
 const ArticleList = () => import('components/article-list/article-list')
-const ListLoading = () => import('src/components/list-loading/list-loading')
 import { mapMutations, mapGetters } from 'vuex'
 export default {
   components: {
-    ArticleList,
-    ListLoading
+    ArticleList
   },
   data() {
     return {

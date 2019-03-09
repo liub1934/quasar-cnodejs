@@ -7,11 +7,7 @@ const routes = [
       {
         name: 'List',
         path: '/list',
-        component: () => import('pages/list/list'),
-        meta: {
-          cache: false,
-          keepAlive: true
-        }
+        component: () => import('pages/list/list')
       },
       {
         name: 'Topic',
@@ -27,37 +23,21 @@ const routes = [
         name: 'User',
         path: '/user/:username',
         component: () => import('pages/user/user'),
-        meta: {
-          cache: false,
-          keepAlive: true
-        },
         children: [
           {
             name: 'UserReplies',
             path: 'replies',
-            component: () => import('pages/user/replies-topics/replies-topics'),
-            meta: {
-              cache: false,
-              keepAlive: true
-            }
+            component: () => import('pages/user/replies-topics/replies-topics')
           },
           {
             name: 'UserTopics',
             path: 'topics',
-            component: () => import('pages/user/replies-topics/replies-topics'),
-            meta: {
-              cache: false,
-              keepAlive: true
-            }
+            component: () => import('pages/user/replies-topics/replies-topics')
           },
           {
             name: 'UserCollect',
             path: 'collect',
-            component: () => import('pages/user/collect/collect'),
-            meta: {
-              cache: false,
-              keepAlive: true
-            }
+            component: () => import('pages/user/collect/collect')
           }
         ]
       },

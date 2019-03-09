@@ -9,51 +9,60 @@
  */
 
 <template>
-  <div class="article-list">
-    <div class="article"
-      v-for="(article, index) in list"
-      :key="index"
-      @click="handleClick(article)">
-      <div class="article-top">
-        <div v-if="type === 'list'"
-          class="article-tag"
-          :style="{ 'background-color': getArticleTag(article.tab, article.good, article.top, 'color') }">
-          {{ getArticleTag(article.tab, article.good, article.top, 'text') }}
-        </div>
-        <div class="article-title"
-          v-html="article.title"></div>
-      </div>
-      <div class="article-content">
-        <img class="avatar"
-          v-lazy="article.author.avatar_url">
-        <div class="article-info">
-          <div class="info-top">
-            <div class="author-name">{{ article.author.loginname }}</div>
-            <div v-if="type === 'list'"
-              class="article-status">
-              <span class="replay-count">{{ article.reply_count }}</span>/
-              <span class="visit-count">{{ article.visit_count }}</span>
-            </div>
-            <span v-else
-              class="last-reply">{{ formatDate(article.last_reply_at) }}</span>
-          </div>
+  <scroll v-bind="$attrs" v-on="$listeners">
+    <div class="article-list">
+      <div class="article"
+        v-for="(article, index) in list"
+        :key="index"
+        @click="handleClick(article)">
+        <div class="article-top">
           <div v-if="type === 'list'"
-            class="info-bottom">
-            <span class="time">{{ formatDate(article.create_at) }}</span>
-            <span class="last-reply">{{ formatDate(article.last_reply_at) }}</span>
+            class="article-tag"
+            :style="{ 'background-color': getArticleTag(article.tab, article.good, article.top, 'color') }">
+            {{ getArticleTag(article.tab, article.good, article.top, 'text') }}
+          </div>
+          <div class="article-title"
+            v-html="article.title"></div>
+        </div>
+        <div class="article-content">
+          <img class="avatar"
+            v-lazy="article.author.avatar_url">
+          <div class="article-info">
+            <div class="info-top">
+              <div class="author-name">{{ article.author.loginname }}</div>
+              <div v-if="type === 'list'"
+                class="article-status">
+                <span class="replay-count">{{ article.reply_count }}</span>/
+                <span class="visit-count">{{ article.visit_count }}</span>
+              </div>
+              <span v-else
+                class="last-reply">{{ formatDate(article.last_reply_at) }}</span>
+            </div>
+            <div v-if="type === 'list'"
+              class="info-bottom">
+              <span class="time">{{ formatDate(article.create_at) }}</span>
+              <span class="last-reply">{{ formatDate(article.last_reply_at) }}</span>
+            </div>
           </div>
         </div>
       </div>
-
+      <list-loading v-bind="$attrs"></list-loading>
     </div>
-  </div>
+  </scroll>
 </template>
 
 <script>
 import './article-list.styl'
 import { getArticleTag } from 'src/utils/article.js'
 import { formatDate } from 'src/utils/date.js'
+import Scroll from 'src/components/scroll/scroll'
+import ListLoading from 'src/components/list-loading/list-loading'
 export default {
+  inheritAttrs: false,
+  components: {
+    Scroll,
+    ListLoading
+  },
   props: {
     list: {
       type: Array

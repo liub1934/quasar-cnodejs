@@ -10,32 +10,27 @@
 
 <template>
   <div class="list">
-    <scroll pullup
-      :data="list"
-      @scrollToEnd="loadMore">
-      <div class="list-content">
-        <article-list :list="list"></article-list>
-        <list-loading :loading="loading"
-          :end="end"
-          :no-result="noResult">
-        </list-loading>
-      </div>
-    </scroll>
+    <div class="list-content">
+      <article-list pullup
+        :data="list"
+        :list="list"
+        :loading="loading"
+        :end="end"
+        :no-result="noResult"
+        @scrollToEnd="loadMore">
+      </article-list>
+    </div>
   </div>
 </template>
 
 <script>
 import ArticleList from 'src/components/article-list/article-list'
-import Scroll from 'src/components/scroll/scroll'
-import ListLoading from 'src/components/list-loading/list-loading'
 import { getTopics } from 'src/api/index.js'
 import { mapMutations } from 'vuex'
 import { getArticleTag } from 'src/utils/article.js'
 export default {
   components: {
-    ArticleList,
-    Scroll,
-    ListLoading
+    ArticleList
   },
   data() {
     return {
@@ -72,9 +67,6 @@ export default {
         this.SET_TITLE('全部')
       }
     },
-    scrollToEnd() {
-      console.log(1)
-    },
     loadMore(index, done) {
       if (!this.hasDone) {
         this.hasDone = true
@@ -107,12 +99,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-.list .scroll-wrapper
-  position: absolute
-  top: 51px
-  right: 0
-  bottom: 0
-  left: 0
-</style>
