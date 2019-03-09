@@ -138,13 +138,11 @@ export default {
     }
   },
   watch: {
-    // $route(newRoute) {
-    //   if (newRoute.name === 'Topic') {
-    //     this.SET_TITLE('主题')
-    //     this.topicDetail = {}
-    //     this._getTopicDetail()
-    //   }
-    // }
+    $route(newRoute) {
+      if (newRoute.name === 'Topic') {
+        this.SET_TITLE('主题')
+      }
+    }
   }
 }
 </script>
