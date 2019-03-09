@@ -59,21 +59,15 @@ module.exports = function (ctx) {
         'QItemMain',
         'QItemSide',
         'QItemTile',
-        'QInfiniteScroll',
         'QSpinnerDots',
         'QInput',
         'QCard',
-        'QTabs',
-        'QTab',
-        'QTabPane',
         'QSelect',
         'QPageSticky',
-        'QField',
-        'QSlideTransition'
+        'QField'
       ],
       directives: [
-        'Ripple',
-        'BackToTop'
+        'Ripple'
       ],
       // Quasar plugins
       plugins: [
@@ -140,7 +134,6 @@ module.exports = function (ctx) {
         cfg.resolve.alias = {
           ...cfg.resolve.alias, // This adds the existing alias
           // Add your own alias like this
-          '@': path.resolve(__dirname, './src')
         }
       },
       packager: {
