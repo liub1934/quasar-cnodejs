@@ -80,14 +80,6 @@
       </navigation>
     </q-page-container>
 
-    <!-- 返回顶部 -->
-    <q-btn v-back-to-top.animate="{offset: 200, duration: 200}"
-      round
-      color="primary"
-      class="fixed-bottom-right animate-pop"
-      style="margin: 0 15px 70px 0">
-      <q-icon name="keyboard_arrow_up" />
-    </q-btn>
   </q-layout>
 </template>
 
