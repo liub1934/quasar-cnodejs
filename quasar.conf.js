@@ -20,7 +20,7 @@ module.exports = function (ctx) {
     supportIE: false,
     build: {
       scopeHoisting: true,
-      vueRouterMode: 'history',
+      vueRouterMode: 'hash',
       publicPath: '/cnodejs',
       // vueCompiler: true,
       // gzip: true,
