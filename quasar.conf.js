@@ -21,7 +21,7 @@ module.exports = function (ctx) {
     build: {
       scopeHoisting: true,
       vueRouterMode: 'hash',
-      publicPath: '/cnodejs',
+      publicPath: '/quasar-cnodejs/',
       // vueCompiler: true,
       // gzip: true,
       // analyze: true,
