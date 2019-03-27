@@ -7,7 +7,7 @@ set -e
 quasar build -t ios
 
 # 进入生成的文件夹
-cd dist
+cd dist/spa-ios
 
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
