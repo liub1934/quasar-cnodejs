@@ -1,7 +1,7 @@
 基于vue + [quasar-framework](https://quasar-framework.org)写的一个cnodejs社区，功能待完善中 
 技术平平前端小码农，代码如有不足之处望多指点。 
 
-[**在线Demo**](https://github.liub37.com/cnodejs)
+[**在线Demo**](https://github.liubing.me/quasar-cnodejs)
 
 [**github**](https://github.com/liub1934/quasar-cnodejs)
 
